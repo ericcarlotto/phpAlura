@@ -20,7 +20,7 @@ class CPF
         $this->numero = $numero;
     }
 
-    public function recuperarNumero(): string
+    public function recuperaNumero(): string
     {
         return $this->numero;
     }

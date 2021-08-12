@@ -1,27 +1,26 @@
 <?php
 
+require_once 'src/Pessoa.php';
 require_once 'src/Conta.php';
+require_once 'src/Endereco.php';
 require_once 'src/Titular.php';
 require_once 'src/CPF.php';
 
-$jonesramos = new Titular(new CPF('123.432.345-32'), 'Jones Ramos');
-$primeiraConta = new Conta($jonesramos);
+$endereco = new Endereco('Petrópolis', 'um bairro', 'minha rua', '71B');
+$vinicius = new Titular(new CPF('123.456.789-10'), 'Vinicius Dias', $endereco);
+$primeiraConta = new Conta($vinicius);
+$primeiraConta->depositar(500);
+$primeiraConta->sacar(300); // isso é ok
 
+echo $primeiraConta->recuperaNomeTitular() . PHP_EOL;
+echo $primeiraConta->recuperaCpfTitular() . PHP_EOL;
+echo $primeiraConta->recuperaSaldo() . PHP_EOL;
 
-$juancaballero = new Titular(new CPF('113.654.865-54'), 'Juan Caballero');
-$segundaConta = new Conta($juancaballero);
+$patricia = new Titular(new CPF('698.549.548-10'), 'Patricia', $endereco);
+$segundaConta = new Conta($patricia);
+var_dump($segundaConta);
 
-$mariamariah = new Titular(new CPF('736.256.345-23'), 'Maria Mariah');
-$terceiraConta = new Conta($mariamariah);
-
-echo $primeiraConta->recuperarNomeTitular() . PHP_EOL;
-$primeiraConta->depositar(1500);
-echo $primeiraConta->recuperarSaldo() . PHP_EOL;
-
-echo $segundaConta->recuperarNomeTitular() . PHP_EOL;
-$segundaConta->depositar(3500);
-echo $segundaConta->recuperarSaldo() . PHP_EOL;
-
-echo $terceiraConta->recuperarNomeTitular() . PHP_EOL;
-$terceiraConta->depositar(5433);
-echo $terceiraConta->recuperarSaldo() . PHP_EOL;
+$outroEndereco = new Endereco('A', 'b', 'c', '1D');
+$outra = new Conta(new Titular(new CPF('123.654.789-01'), 'Abcdefg', $outroEndereco));
+unset($segundaConta);
+echo Conta::recuperaNumeroDeContas();
