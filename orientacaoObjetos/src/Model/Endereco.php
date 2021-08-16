@@ -2,8 +2,18 @@
 
 namespace Alura\Banco\Model;
 
-class Endereco
+/**
+ * Class Endereço
+ * @package Alura\Banco\Model
+ * @property-read string $cidade
+ * @property-read string $bairro
+ * @property-read string $rua
+ * @property-read string $numero
+ */
+
+final class Endereco
 {
+
     private $cidade;
     private $bairro;
     private $rua;
@@ -15,6 +25,26 @@ class Endereco
         $this->cidade = $cidade;
         $this->bairro = $bairro;
         $this->rua = $rua;
+        $this->numero = $numero;
+    }
+
+    public function alteraCidade(string $cidade): void
+    {
+        $this->cidade = $cidade;
+    }
+
+    public function alteraBairro(string $bairro): void
+    {
+        $this->bairro = $bairro;
+    }
+
+    public function alteraRua(string $rua): void
+    {
+        $this->rua = $rua;
+    }
+
+    public function alteraNumero(string $numero): void
+    {
         $this->numero = $numero;
     }
 
@@ -36,5 +66,10 @@ class Endereco
     public function recuperaNumero(): string
     {
         return $this->numero;
+    }
+
+    public function __toString(): string
+    {
+        return "{$this->rua}, {$this->numero}, {$this->bairro}, {$this->cidade}";
     }
 }
