@@ -2,16 +2,30 @@
 
 namespace Alura\Banco\Model;
 
-class Pessoa
+use AcessoPropriedades;
+use AtualizaPropriedades;
+
+/**
+ * @property-read string $nome
+ */
+
+abstract class Pessoa
 {
     protected $nome;
     private $cpf;
+
+    use AtualizaPropriedades, AcessoPropriedades;
 
     public function __construct(string $nome, CPF $cpf)
     {
         $this->validaNomeTitular($nome);
         $this->nome = $nome;
         $this->cpf = $cpf;
+    }
+
+    public function alteraNome(string $nome): void
+    {
+        $this->nome = $nome;
     }
 
     public function recuperaNome(): string
@@ -24,7 +38,7 @@ class Pessoa
         return $this->cpf->recuperaNumero();
     }
 
-    protected function validaNomeTitular(string $nomeTitular)
+    final protected function validaNomeTitular(string $nomeTitular)
     {
         if (strlen($nomeTitular) < 5) {
             echo "Nome precisa ter pelo menos 5 caracteres";
