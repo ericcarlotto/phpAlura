@@ -2,7 +2,7 @@
 
 namespace Alura\Banco\Model;
 
-use AcessoPropriedades;
+use AccessProprietaries;
 use AtualizaPropriedades;
 
 /**
@@ -14,7 +14,7 @@ abstract class Pessoa
     protected $nome;
     private $cpf;
 
-    use AtualizaPropriedades, AcessoPropriedades;
+    use AtualizaPropriedades, AccessProprietaries;
 
     public function __construct(string $nome, CPF $cpf)
     {
