@@ -2,7 +2,7 @@
 
 namespace\Alura\Banco\Model;
 
-trait AcessoPropriedades
+trait AccessProprietaries
 {
     public function __get(string $nomeAtributo)
     {

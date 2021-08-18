@@ -2,9 +2,12 @@
 
 namespace Alura\Banco\Model;
 
+
+use AccessProprietaries;
+
 /**
  * Class Endereço
- * @package Alura\Banco\Model
+ * @package Service\Banco\Model
  * @property-read string $cidade
  * @property-read string $bairro
  * @property-read string $rua
@@ -13,6 +16,7 @@ namespace Alura\Banco\Model;
 
 final class Endereco
 {
+    use AccessProprietaries;
 
     private $cidade;
     private $bairro;
