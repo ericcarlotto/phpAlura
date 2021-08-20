@@ -14,7 +14,6 @@ abstract class Pessoa
     protected $nome;
     private $cpf;
 
-    use AtualizaPropriedades, AccessProprietaries;
 
     public function __construct(string $nome, CPF $cpf)
     {
