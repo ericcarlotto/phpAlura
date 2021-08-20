@@ -16,7 +16,6 @@ use AccessProprietaries;
 
 final class Endereco
 {
-    use AccessProprietaries;
 
     private $cidade;
     private $bairro;

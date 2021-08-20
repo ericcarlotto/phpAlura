@@ -1,6 +1,6 @@
 <?php
 
-namespace\Alura\Banco\Model;
+namespace Alura\Banco\Model;
 
 trait AtualizaPropriedades
 {
